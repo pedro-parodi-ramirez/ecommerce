@@ -21,7 +21,8 @@ const IS_ADMIN = 1;
 let ADMIN = false;
 
 // Server
-const PORT = 8080;
+// const PORT = 8080;
+const URL_RAILWAY = 'https://ecommerce-production-830c.up.railway.app';
 
 // Session
 const formSignIn = document.getElementById('form-sign-in');
@@ -137,7 +138,7 @@ formAddProduct.addEventListener('submit', async (e) => {
         stock: inputStockAdd.value,
     };
     const dataJSON = JSON.stringify(data);
-    const rawResponse = await fetch(`http://localhost:${PORT}/api/productos`, {
+    const rawResponse = await fetch(`${URL_RAILWAY}/api/productos`, {
         headers: {
             'Content-Type': 'application/json',
             'Content-Length': dataJSON.length
@@ -174,7 +175,7 @@ formUpdateProduct.addEventListener('submit', async (e) => {
         stock: inputStockUpdate.value,
     };
     const dataJSON = JSON.stringify(data);
-    const rawResponse = await fetch(`http://localhost:${PORT}/api/productos/${idProduct}`, {
+    const rawResponse = await fetch(`${URL_RAILWAY}/api/productos/${idProduct}`, {
         headers: {
             'Content-Type': 'application/json',
             'Content-Length': dataJSON.length
@@ -197,7 +198,7 @@ formUpdateProduct.addEventListener('submit', async (e) => {
 
 // Get all products and list them
 async function showProducts() {
-    const rawResponse = await fetch(`http://localhost:${PORT}/api/productos`);
+    const rawResponse = await fetch(`${URL_RAILWAY}/api/productos`);
     const products = await rawResponse.json();
 
     // Get cathegories from products and list them in add and update product
@@ -219,14 +220,14 @@ async function showProducts() {
 
 // Get product filtered by cathegory and list them
 async function showProductsFiltered(filterValue) {
-    const rawResponse = await fetch(`http://localhost:${PORT}/api/productos/categoria/${filterValue}`);
+    const rawResponse = await fetch(`${URL_RAILWAY}/api/productos/categoria/${filterValue}`);
     const products = await rawResponse.json();
     listProducts(products);
 }
 
 // Get all products and show them (with all of his properties)
 async function listProducts(products) {
-    const rawResponseHandlebards = await fetch(`http://localhost:${PORT}/templates/card-images.hbs`);
+    const rawResponseHandlebards = await fetch(`${URL_RAILWAY}/templates/card-images.hbs`);
     text = await rawResponseHandlebards.text();
     template = Handlebars.compile(text);
 
@@ -246,7 +247,7 @@ async function listProducts(products) {
                 // Delete product
                 document.getElementById(`button-delete-product-id${p._id}`).addEventListener('click', async () => {
                     // Delete request to server and refresh website
-                    const rawResponse = await fetch(`http://localhost:${PORT}/api/productos/${p._id}`, {
+                    const rawResponse = await fetch(`${URL_RAILWAY}/api/productos/${p._id}`, {
                         headers: {
                             'Content-Type': 'application/json'
                         },
@@ -278,7 +279,7 @@ async function listProducts(products) {
                 // If cart doesn't exist, create it
                 if (shoppingCartID === null) {
                     document.getElementById('cart-container').className = '';
-                    const rawResponse = await fetch(`http://localhost:${PORT}/api/carrito`, {
+                    const rawResponse = await fetch(`${URL_RAILWAY}/api/carrito`, {
                         method: 'POST'
                     });
                     if (rawResponse.status === STATUS.UNAUTHORIZED) {
@@ -291,7 +292,7 @@ async function listProducts(products) {
 
                 // POST request to add product to cart
                 const dataJSON = JSON.stringify(p);
-                const rawResponse = await fetch(`http://localhost:${PORT}/api/carrito/${shoppingCartID}/productos`, {
+                const rawResponse = await fetch(`${URL_RAILWAY}/api/carrito/${shoppingCartID}/productos`, {
                     headers: {
                         'Content-Type': 'application/json',
                         'Content-Length': dataJSON.length
@@ -322,7 +323,7 @@ async function listProducts(products) {
 
 // Confirm cart products
 confirmCartProducts.addEventListener('click', async () => {
-    const rawResponse = await fetch(`http://localhost:${PORT}/api/carrito/${shoppingCartID}`, {
+    const rawResponse = await fetch(`${URL_RAILWAY}/api/carrito/${shoppingCartID}`, {
         headers: {
             'Content-Type': 'application/json'
         },
@@ -381,7 +382,7 @@ function showCartProducts(cartProducts) {
         // Delete product from cart
         document.getElementById(`button-delete-from-cart-id${p.product._id}`).addEventListener('click', async () => {
             // DELETE request to server
-            const rawResponse = await fetch(`http://localhost:${PORT}/api/carrito/${shoppingCartID}/productos/${p.product._id}`, {
+            const rawResponse = await fetch(`${URL_RAILWAY}/api/carrito/${shoppingCartID}/productos/${p.product._id}`, {
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -403,7 +404,7 @@ function showCartProducts(cartProducts) {
 /* ----------------------------------------------- MESSAGE CENTER ----------------------------------------------- */
 /* -------------------------------------------------------------------------------------------------------------- */
 async function showMessages(user) {
-    const rawResponse = await fetch(`http://localhost:${PORT}/messages/${user}`);
+    const rawResponse = await fetch(`${URL_RAILWAY}/messages/${user}`);
     if (rawResponse.status === STATUS.OK) {
         const response = await rawResponse.json();
         messagesList.innerHTML = '';
@@ -464,7 +465,7 @@ socket.on('receive-message', async (message) => {
 
 // On loading website, first checks if user is logged in
 window.addEventListener('load', async () => {
-    const rawResponse = await fetch(`http://localhost:${PORT}/usuarios/auth/me`);
+    const rawResponse = await fetch(`${URL_RAILWAY}/usuarios/auth/me`);
     if (rawResponse.status === STATUS.ACCEPTED) {
         let response = await rawResponse.json();
         enterMainSite(response, socket.id);
@@ -483,7 +484,7 @@ formSignIn.addEventListener('submit', async (event) => {
     };
     const dataJSON = JSON.stringify(data);
 
-    const rawResponse = await fetch(`http://localhost:${PORT}/usuarios/sign-in`, {
+    const rawResponse = await fetch(`${URL_RAILWAY}/usuarios/sign-in`, {
         headers: {
             'Content-Type': 'application/json',
             'Content-Length': dataJSON.length
@@ -512,7 +513,7 @@ formSignUp.addEventListener('submit', async (event) => {
     }
     else {
         const data = new FormData(formSignUp);
-        const rawResponse = await fetch(`http://localhost:${PORT}/usuarios/sign-up`, {
+        const rawResponse = await fetch(`${URL_RAILWAY}/usuarios/sign-up`, {
             method: 'POST',
             body: data
         });
@@ -556,7 +557,7 @@ btnSignOut.addEventListener('click', async () => {
     divSignIn.classList.remove('d-none');
     divSignUp.classList.add('d-none');
     btnToggleAuth.innerText = 'Registrarse';
-    await fetch(`http://localhost:${PORT}/usuarios/sign-out`, {
+    await fetch(`${URL_RAILWAY}/usuarios/sign-out`, {
         headers: {
             'Content-Type': 'application/json'
         },
