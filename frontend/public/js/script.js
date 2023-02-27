@@ -21,7 +21,6 @@ const IS_ADMIN = 1;
 let ADMIN = false;
 
 // Server
-const PORT_RAILWAY = $PORT;
 const URL_RAILWAY = `https://0.0.0.0:${PORT_RAILWAY}`;
 
 // Session

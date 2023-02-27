@@ -1,7 +1,7 @@
 import app from "./app.js";
 import { initSocket } from "./socket.js";
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT_RAILWAY;
 
 const server = app.listen(PORT, () => {
     console.log(`Servidor http esta escuchando en el puerto ${server.address().port}`);
