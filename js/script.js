@@ -21,7 +21,7 @@ const IS_ADMIN = 1;
 let ADMIN = false;
 
 // Server
-const URL_RAILWAY = `ecommerce-production-830c.up.railway.app`;
+const URL_RAILWAY = `https://ecommerce-production-830c.up.railway.app`;
 
 // Session
 const formSignIn = document.getElementById('form-sign-in');
