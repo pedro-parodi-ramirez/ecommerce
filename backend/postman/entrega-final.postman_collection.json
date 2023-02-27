@@ -1,0 +1,609 @@
+{
+	"info": {
+		"_postman_id": "b37d27fa-8efb-47e0-96cc-6424f0886a03",
+		"name": "entrega-final",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23358626"
+	},
+	"item": [
+		{
+			"name": "product-getById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/productos/63fcc6b8996c3827189f34ff",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"productos",
+						"63fcc6b8996c3827189f34ff"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "product-getByCategory",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/productos/categoria/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"productos",
+						"categoria",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "product-getAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/productos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "product-create",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Mermelada\",\r\n    \"description\": \"Mermelada Arándanos Bc La Campagnola Fra 390 Grm\",\r\n    \"cathegory\": {\r\n        \"id\": 6,\r\n        \"name\": \"Azucar, dulces y chocolates\"\r\n    },\r\n    \"code\": \"Azucar, dulces y chocolates\",\r\n    \"image\": \"https://cdn2.iconfinder.com/data/icons/bakery-kitchen-3/512/jam-jar-berries-256.png\",\r\n    \"price\": 613.25,\r\n    \"stock\": 60\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/productos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "product-update",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Leche\",\r\n    \"description\": \"Leche Entera LA SERENISIMA 3% Sachet 1 L\",\r\n    \"cathegory\": {\r\n        \"id\": 2,\r\n        \"name\": \"Productos Lácteos\"\r\n    },\r\n    \"image\": \"https://cdn1.iconfinder.com/data/icons/barista/256/barista-icons_milk-package-512.png\",\r\n    \"price\": 215.28,\r\n    \"stock\": 78\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/productos/63fcc1bddd042888f9870e0b",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"productos",
+						"63fcc1bddd042888f9870e0b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "product-deleteOne",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/productos/63fcc1bddd042888f9870e0b",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"productos",
+						"63fcc1bddd042888f9870e0b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "messages-getAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/messages",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"messages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "message-getUserMessages",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/messages/marcosa@gmail.com",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"messages",
+						"marcosa@gmail.com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "messages-create",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"admin@gmail.com\",\r\n    \"type\": \"system\",\r\n    \"body\": \"Mensaje SYSTEM --> USER\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/messages",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"messages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user-authMe",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/usuarios/auth/me",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"auth",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user-getAll",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user-signIn",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/usuarios/sign-in",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"sign-in"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user-signUp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "German Rodriguez",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "germanr@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "germanr",
+							"type": "text"
+						},
+						{
+							"key": "edad",
+							"value": "23",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "my_address",
+							"type": "text"
+						},
+						{
+							"key": "telephone",
+							"value": "my_telephone",
+							"type": "text"
+						},
+						{
+							"key": "avatar",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "admin",
+							"value": "0",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/usuarios/sign-up",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"sign-up"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user-signOut",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/usuarios/sign-out",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"sign-out"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cart-addToCart",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_id\": \"63cac3c4d6fd82581f4b1d21\",\r\n    \"timestamp\": \"2022-10-10T16:36:56.545Z\",\r\n    \"name\": \"Yerba\",\r\n    \"description\": \"Yerba Mate Suave PLAYADITO 1 Kg\",\r\n    \"code\": \"ACCI\",\r\n    \"image\": \"https://cdn3.iconfinder.com/data/icons/argentina-3/504/tea-yerba-mate-drink-argentina-256.png\",\r\n    \"price\": 748.6,\r\n    \"stock\": 50,\r\n    \"__v\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/carrito/63fa50ab480abe57b6756ae7/productos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"carrito",
+						"63fa50ab480abe57b6756ae7",
+						"productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cart-getAllFromCart",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/carrito/63fa4e8a7f07f1095e866aa5/productos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"carrito",
+						"63fa4e8a7f07f1095e866aa5",
+						"productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cart-getAllCarts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/carrito/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"carrito",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cart-delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/carrito/4644b844-a8d2-48a7-83a2-f1de8b2d4356",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"carrito",
+						"4644b844-a8d2-48a7-83a2-f1de8b2d4356"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cart-deleteFromCart",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/carrito/7512b4ca-8aa0-452f-80ba-7cdb8fc201b9/productos/63cac3c4d6fd82581f4b1d20",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"carrito",
+						"7512b4ca-8aa0-452f-80ba-7cdb8fc201b9",
+						"productos",
+						"63cac3c4d6fd82581f4b1d20"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cart-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/carrito",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"carrito"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cart-confirmCart",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/carrito/63fa4e8a7f07f1095e866aa9",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"carrito",
+						"63fa4e8a7f07f1095e866aa9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "order-getAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/ordenes",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"ordenes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "order-getById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/ordenes/63fa5084480abe57b6756ad6",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"ordenes",
+						"63fa5084480abe57b6756ad6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "order-delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/ordenes/63fa5084480abe57b6756ad6",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"ordenes",
+						"63fa5084480abe57b6756ad6"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
