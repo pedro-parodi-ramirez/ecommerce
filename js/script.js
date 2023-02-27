@@ -623,5 +623,5 @@ async function enterMainSite(userInfo, socketID) {
     showProducts();
     // await showMessages(userInfo.user.email);
     usernameOutput.innerText = `Bienvenid@ ${userInfo.user.name} !`;
-    userAvatar.setAttribute('src', `http://localhost:${PORT}` + userInfo.user.avatar);
+    userAvatar.setAttribute('src', `${URL_RAILWAY}` + userInfo.user.avatar);
 }
