@@ -21,8 +21,8 @@ const IS_ADMIN = 1;
 let ADMIN = false;
 
 // Server
-// const PORT = 8080;
-const URL_RAILWAY = `https://0.0.0.0:${process.env.PORT}`;
+const PORT_RAILWAY = $PORT;
+const URL_RAILWAY = `https://0.0.0.0:${PORT_RAILWAY}`;
 
 // Session
 const formSignIn = document.getElementById('form-sign-in');
