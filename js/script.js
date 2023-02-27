@@ -22,7 +22,7 @@ let ADMIN = false;
 
 // Server
 // const PORT = 8080;
-const URL_RAILWAY = 'https://ecommerce-production-830c.up.railway.app';
+const URL_RAILWAY = `https://0.0.0.0:${process.env.PORT}`;
 
 // Session
 const formSignIn = document.getElementById('form-sign-in');
