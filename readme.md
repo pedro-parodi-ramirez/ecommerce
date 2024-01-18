@@ -7,7 +7,7 @@ El servidor genera mensajes en consola con cada solicitud recibida para control 
 La persitencia de datos es en Mongo Atlas por default. Pero también puede utilizarse persistencia en memoria.
 
 ## Ejecutar servidor
-Luego de las configuraciones correspondientes, situarse en la raíz del proyecto y ejecutar:
+Luego de las configuraciones correspondientes (ver más abajo), situarse en la raíz del proyecto desde una terminal o PowerShell y ejecutar:
 ```
 npm start
 ```
@@ -36,6 +36,7 @@ npm run initdb
 La app se ejecuta automáticamente con valores iniciales, no se requiere configuración.
 
 ## Configuración
+Es necesario correr la aplicación en Windows y tener previamente instalado **Node.js** y el instalador de paquetes **npm**.
 
 1. Crear un archivo en la raíz del proyecto, con el nombre `.env` y el siguiente contenido:
 ```
